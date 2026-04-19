@@ -107,7 +107,7 @@
       padding: 22px;
     }
 
-    .topbar {
+    .bottombar {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
@@ -301,7 +301,7 @@
     }
 
     @media (max-width: 640px) {
-      .topbar {
+      .bottombar {
         grid-template-columns: 1fr;
       }
 
@@ -331,7 +331,6 @@
   <div class="wrap">
     <section class="title-box">
       <h1>Quiz Tributario: IVA, Retefuente e ICA</h1>
-      <div class="subtitle">10 preguntas básicas · opción A / B / C</div>
     </section>
 
     <section class="quiz-box">
@@ -354,7 +353,7 @@
         <button class="restart-btn" id="restartBtn">Volver a intentar</button>
       </div>
 
-      <div class="topbar">
+      <div class="bottombar">
         <div class="stat">
           <span class="stat-label">Pregunta</span>
           <strong id="progress">1 / 10</strong>
@@ -472,7 +471,6 @@
 
     const questionText = document.getElementById('questionText');
     const optionsContainer = document.getElementById('optionsContainer');
-    const feedback = document.getElementById('feedback');
     const nextBtn = document.getElementById('nextBtn');
     const progress = document.getElementById('progress');
     const correctCount = document.getElementById('correctCount');
@@ -523,8 +521,6 @@
     function loadQuestion() {
       answered = false;
       nextBtn.disabled = true;
-      feedback.textContent = 'Selecciona una respuesta para continuar.';
-      feedback.className = 'feedback';
 
       const q = questions[currentQuestion];
       progress.textContent = `${currentQuestion + 1} / ${questions.length}`;
