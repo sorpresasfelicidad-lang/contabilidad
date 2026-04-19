@@ -339,6 +339,7 @@
         <div>
           <div class="question" id="questionText"></div>
           <div class="options" id="optionsContainer"></div>
+          <div class="feedback" id="feedback">Selecciona una respuesta para continuar.</div>
         </div>
 
         <div class="actions">
@@ -471,6 +472,7 @@
 
     const questionText = document.getElementById('questionText');
     const optionsContainer = document.getElementById('optionsContainer');
+    const feedback = document.getElementById('feedback');
     const nextBtn = document.getElementById('nextBtn');
     const progress = document.getElementById('progress');
     const correctCount = document.getElementById('correctCount');
@@ -521,12 +523,14 @@
     function loadQuestion() {
       answered = false;
       nextBtn.disabled = true;
-
+      feedback.textContent = 'Selecciona una respuesta para continuar.';
+      feedback.className = 'feedback';
+    
       const q = questions[currentQuestion];
       progress.textContent = `${currentQuestion + 1} / ${questions.length}`;
       questionText.textContent = q.question;
       optionsContainer.innerHTML = '';
-
+    
       q.options.forEach((option, index) => {
         const button = document.createElement('button');
         button.className = 'option';
