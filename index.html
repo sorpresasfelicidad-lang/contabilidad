@@ -335,6 +335,25 @@
     </section>
 
     <section class="quiz-box">
+
+      <div class="question-panel" id="questionPanel">
+        <div>
+          <div class="question" id="questionText"></div>
+          <div class="options" id="optionsContainer"></div>
+        </div>
+
+        <div class="actions">
+          <button id="nextBtn" class="next-btn" disabled>Siguiente</button>
+        </div>
+      </div>
+
+      <div class="result" id="resultBox">
+        <h2>Resultado final</h2>
+        <div class="score" id="scoreText"></div>
+        <div class="message" id="finalMessage"></div>
+        <button class="restart-btn" id="restartBtn">Volver a intentar</button>
+      </div>
+
       <div class="topbar">
         <div class="stat">
           <span class="stat-label">Pregunta</span>
@@ -349,25 +368,7 @@
           <strong id="wrongCount">0</strong>
         </div>
       </div>
-
-      <div class="question-panel" id="questionPanel">
-        <div>
-          <div class="question" id="questionText"></div>
-          <div class="options" id="optionsContainer"></div>
-          <div class="feedback" id="feedback">Selecciona una respuesta para continuar.</div>
-        </div>
-
-        <div class="actions">
-          <button id="nextBtn" class="next-btn" disabled>Siguiente</button>
-        </div>
-      </div>
-
-      <div class="result" id="resultBox">
-        <h2>Resultado final</h2>
-        <div class="score" id="scoreText"></div>
-        <div class="message" id="finalMessage"></div>
-        <button class="restart-btn" id="restartBtn">Volver a intentar</button>
-      </div>
+      
     </section>
 
     <section class="footer-box">
