@@ -75,7 +75,7 @@
     .title-box,
     .quiz-box,
     .footer-box {
-      background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+      background: linear-gradient(180deg, rgba(19, 27, 38, 0.95), rgba(10, 18, 28, 0.95));
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -129,8 +129,21 @@
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.06);
       font-size: 0.9rem;
+      box-shadow: 0 0 8px rgba(124, 199, 255, 0.15);
     }
 
+    .stat.blue {
+      box-shadow: 0 0 10px rgba(124, 199, 255, 0.4);
+    }
+    
+    .stat.green {
+      box-shadow: 0 0 10px rgba(121, 242, 178, 0.4);
+    }
+    
+    .stat.red {
+      box-shadow: 0 0 10px rgba(255, 125, 150, 0.4);
+    }
+    
     .stat-label {
       font-size: 0.75rem;
       color: var(--muted);
@@ -550,6 +563,9 @@
     
       const q = questions[currentQuestion];
       progress.textContent = `${currentQuestion + 1} / ${questions.length}`;
+      progress.parentElement.classList.add('blue');
+      setTimeout(() => progress.parentElement.classList.remove('blue'), 300);
+    
       questionText.textContent = q.question;
       optionsContainer.innerHTML = '';
     
@@ -565,18 +581,20 @@
     function selectAnswer(index, selectedButton) {
       if (answered) return;
       answered = true;
-
+    
       const q = questions[currentQuestion];
       const buttons = Array.from(document.querySelectorAll('.option'));
-
+    
       buttons.forEach(btn => btn.disabled = true);
-
+    
       if (index === q.correct) {
         selectedButton.classList.add('correct');
         feedback.textContent = 'Correcto. Muy bien.';
         feedback.className = 'feedback good';
         correctAnswers++;
         correctCount.textContent = correctAnswers;
+        correctCount.parentElement.classList.add('green');
+        setTimeout(() => correctCount.parentElement.classList.remove('green'), 300);
         audioBeep('good');
       } else {
         selectedButton.classList.add('wrong');
@@ -585,9 +603,11 @@
         feedback.className = 'feedback bad';
         wrongAnswers++;
         wrongCount.textContent = wrongAnswers;
+        wrongCount.parentElement.classList.add('red');
+        setTimeout(() => wrongCount.parentElement.classList.remove('red'), 300);
         audioBeep('bad');
       }
-
+    
       nextBtn.disabled = false;
     }
 
