@@ -624,7 +624,11 @@
       questionPanel.style.display = 'none';
       resultBox.classList.add('show');
       scoreText.textContent = `Obtuviste ${correctAnswers} de ${questions.length} correctas.`;
-      finalMessage.textContent = `${getFinalMessage(correctAnswers, questions.length)} Buenas: ${correctAnswers}. Malas: ${wrongAnswers}.`;
+      finalMessage.innerHTML = `
+      ${getFinalMessage(correctAnswers, questions.length)}<br><br>
+      ✔️ Buenas: ${correctAnswers}<br>
+      ❌ Malas: ${wrongAnswers}
+      `;
     }
 
     nextBtn.addEventListener('click', () => {
