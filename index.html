@@ -621,7 +621,9 @@
     }
 
     function showResults() {
-      questionPanel.style.display = 'none';
+      document.getElementById('optionsContainer').innerHTML = '';
+      document.getElementById('feedback').style.display = 'none';
+      document.getElementById('nextBtn').style.display = 'none';
       resultBox.classList.add('show');
       scoreText.textContent = `Obtuviste ${correctAnswers} de ${questions.length} correctas.`;
       finalMessage.innerHTML = `
